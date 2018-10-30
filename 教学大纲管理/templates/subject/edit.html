@@ -1,0 +1,72 @@
+{% extends 'master.html' %}
+{% block main %}
+    <div class="header">
+        <div class="container">
+            <h2>修改学科-{% if subject.name %}{{ subject.name }}{% else %}{{ forms.name.value }}{% endif %}</h2>
+        </div>
+    </div>
+    <div class="container">
+        <form class="form-horizontal" action="{% url 'subject_edit' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="s_id" value="{{ subject.id }}" hidden>
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">名称：</label>
+                <div class="col-sm-3">
+                    <input type="text" name="name" id="name" value="{% if forms.name.value %}{{ forms.name.value }}{% else %}{{ subject.name }}{% endif %}" class="form-control"
+                           placeholder="请填写学科名称" required>
+                </div>
+                <span>{{ forms.errors.name }}</span>
+                <h4 style="color: red;">{{ errmsg }}</h4>
+            </div>
+            <div class="form-group">
+                <label for="amount" class="col-sm-2 control-label">学费：</label>
+                <div class="col-sm-2">
+                    <input type="text" name="amount" id="amount" value="{% if forms.amount.value %}{{ forms.amount.value }}{% else %}{{ subject.amount }}{% endif %}" class="form-control"
+                           placeholder="请填写学费" required>
+                </div>
+                <span>{{ forms.errors.amount }}</span>
+            </div>
+            <div class="form-group">
+                <label for="days" class="col-sm-2 control-label">学时：</label>
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <input type="number" name="days" id="days" value="{% if forms.days.value %}{{ forms.days.value }}{% else %}{{ subject.days }}{% endif %}" class="form-control"
+                               placeholder="请填写学时" required>
+                        <span class="input-group-addon">天</span>
+                    </div>
+                </div>
+                <span>{{ forms.errors.days }}</span>
+            </div>
+            <div class="form-group">
+                <label for="number" class="col-sm-2 control-label">排序：</label>
+                <div class="col-sm-2">
+                    <input type="number" name="number" id="number" value="{% if forms.number.value %}{{ forms.number.value }}{% else %}{{ subject.number }}{% endif %}" class="form-control"
+                           placeholder="请填写排序数字" required>
+                </div>
+                <span>{{ forms.errors.number }}</span>
+            </div>
+            <div class="form-group">
+                <label for="assurance" class="col-sm-2 control-label">承诺：</label>
+                <div class="col-sm-7">
+                    <input type="text" name="assurance" id="assurance" value="{% if forms.assurance.value %}{{ forms.assurance.value }}{% else %}{{ subject.assurance }}{% endif %}" class="form-control"
+                           placeholder="请填写薪资承诺" required>
+                </div>
+                <span>{{ forms.errors.assurance }}</span>
+            </div>
+            <div class="form-group">
+                <label for="remark" class="col-sm-2 control-label">备注：</label>
+                <div class="col-sm-7">
+                        <textarea class="form-control" id="remark" name="remark" rows="6"
+                                  placeholder="请填写备注">{% if forms.remark.value %}{{ forms.remark.value }}{% else %}{{ subject.remark }}{% endif %}</textarea>
+                </div>
+                <span>{{ forms.errors.remark }}</span>
+            </div>
+            <div class="form-group">
+                <label for="" class="visible-md visible-sm visible-lg col-sm-2 control-label"></label>
+                <div class="col-sm-2">
+                    <input type="submit" class="btn btn-primary btn-block" value="提交">
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

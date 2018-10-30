@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>教学大纲管理系统</title>
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/master.css">
+    <link rel="stylesheet" href="../../lib/bootstrap/fonts/glyphicons-halflings-regular.ttf">
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar-collapse-1">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">教学大纲管理系统</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">首页</a></li>
+                <li class="active"><a href="#">用户</a></li>
+                <li class="active"><a href="#">登录</a></li>
+                <li><a href="#">关于</a></li>
+            </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            账户<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">修改密码</a></li>
+                            <li><a href="#">修改资料</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+        </div>
+    </div>
+</div>
+    <div class="header">
+        <div class="container">
+            <h2>修改一级大纲</h2>
+        </div>
+    </div>
+    <div class="container">
+        <form class="form-horizontal" action="#" method="post">
+            <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">标题：</label>
+                <div class="col-sm-3">
+                    <input type="text" name="title" id="title" value="#" class="form-control"
+                           placeholder="请填写阶段标题" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="advancing" class="col-sm-2 control-label">拔高内容：</label>
+                <div class="col-sm-7">
+                    <textarea class="form-control" id="advancing" name="advancing" rows="3"
+                                  placeholder="请填写拔高内容"></textarea>
+                    <span class="help-block">多条拔高内容以中文全角，分隔</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="days" class="col-sm-2 control-label">学时：</label>
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <input type="text" name="days" id="days" value="" class="form-control"
+                               placeholder="请填写学时" required>
+                        <span class="input-group-addon">天</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="number" class="col-sm-2 control-label">排序：</label>
+                <div class="col-sm-2">
+                    <input type="text" name="number" id="number" value="" class="form-control"
+                           placeholder="请填写排序数字" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="remark" class="col-sm-2 control-label">备注：</label>
+                <div class="col-sm-7">
+                        <textarea class="form-control" id="remark" name="remark" rows="6"
+                                  placeholder="请填写备注"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="visible-md visible-sm visible-lg col-sm-2 control-label"></label>
+                <div class="col-sm-2">
+                    <input type="hidden" name="id" value="1">
+                    <input type="hidden" name="stage_id" value="1">
+                    <input type="submit" class="btn btn-primary btn-block" value="提交">
+                </div>
+            </div>
+        </form>
+    </div>
+<div class="footer">
+    <div class="container text-center">
+        智游教育 &copy;zhiyou100.com
+    </div>
+</div>
+<script src="../../lib/jquery/jquery.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'master.html' %}
+
+{% block main %}
+    <div class="container text-center">
+        <h2>学科</h2>
+            {{ errmsg }}
+            {% for sub in subjects %}
+            <div>
+                <h3>
+                    <a class="title" href="{% url 'stage_list' %}?s_id={{ sub.id }}">{{ sub.name }}
+                        <small>（￥{{ sub.amount }}，{{ sub.days }}天）</small>
+                    </a>&nbsp;&nbsp;
+                    <a class="glyphicon glyphicon-list" href="{% url 'subject_detail' %}?s_id={{ sub.id }}" title="学科详情"></a>&nbsp;
+                    <a class="glyphicon glyphicon-edit" href="{% url 'subject_edit' %}?s_id={{ sub.id }}" title="修改学科"></a>&nbsp;
+                    <a class="glyphicon glyphicon-remove-circle" href="{% url 'subject_delete' %}?s_id={{ sub.id }}"
+                       title="删除学科"></a>
+                </h3>
+            </div>
+            {% endfor %}
+
+
+        <div class="tools">
+            <a class="glyphicon glyphicon-plus-sign" href="{% url 'subject_add' %}" title="添加学科"></a>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+
+{% endblock %}

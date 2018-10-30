@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>欢迎登陆</title>
+    <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/master.css' %}">
+    <style>
+        .c{
+            display: flex;
+            justify-content: center;
+        }
+        .b{
+            display: flex;
+            justify-content: center;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    {% if message %}
+        <div class="container">
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
+                <i class="glyphicon glyphicon-ban-circle"></i>{{ message }}
+            </div>
+        </div>
+    {% endif %}
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">教育大纲管理系统</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <div class="logo img-responsive">
+                <img class="center-block" src="{% static '1.png' %}" alt="">
+            </div>
+            <div class="c">
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="username" value="" placeholder="账号" autofocus>
+                </div>
+            </div>
+            <div class="c">
+                <div class="col-sm-3">
+                    <input type="password" class="form-control" name="password" value="" placeholder="密码">
+                </div>
+            </div>
+            <div class="b">
+                <div class="col-sm-3">
+                    <button class="btn btn-lg btn-success btn-block" type="submit">登录</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="footer">
+        <div class="container text-center">
+            智游教育 @zhiyou100.com
+        </div>
+    </div>
+<script src="{% static 'lib/jquery/jquery.js' %}"></script>
+<script src="{% static 'lib/bootstrap/js/bootstrap.js' %}"></script>
+</body>
+</html>

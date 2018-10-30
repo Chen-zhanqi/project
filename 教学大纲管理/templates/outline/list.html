@@ -1,0 +1,39 @@
+{% extends 'master.html' %}
+{% block main %}
+    <div class="container text-center zy-list">
+        <h2>{{ stage.subject.name }} 阶段{{ stage.number }} 一级大纲</h2>
+        <p>{{ stage.title }}（{{ stage.days }}天）</p>
+            {% for outline in outlines %}
+            <div>
+                <h3 class="text-center">
+                    <a class="title" href="{% url 'program_list' %}?o_id={{ outline.id }}">{{ outline.title }}
+                        <small>（{{ outline.days }}天）</small>
+                    </a>&nbsp;&nbsp;
+                    <a class="glyphicon glyphicon-list" href="./detail.html" title="一级大纲详情"></a>&nbsp;
+                    <a class="glyphicon glyphicon-edit" href="./edit.html" title="修改一级大纲"></a>&nbsp;
+                    <a class="glyphicon glyphicon-remove-circle" href="#"
+                       title="删除一级大纲"></a>
+                </h3>
+
+            </div>
+
+            <div class="sub-item">
+                    {{ outline.advancing }}
+            </div>
+
+            <div class="text-center">
+                <i class="glyphicon glyphicon-arrow-down"></i>
+            </div>
+
+            {% endfor %}
+
+
+        <div class="tools">
+            <a class="glyphicon glyphicon-plus-sign" href="./add.html" title="添加一级大纲"></a>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+{% endblock %}

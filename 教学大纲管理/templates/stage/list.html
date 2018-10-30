@@ -1,0 +1,34 @@
+{% extends 'master.html' %}
+
+{% block main %}
+    <div class="container text-center zy-list">
+        <h2>{{ subject.name }}阶段</h2>
+            {% for stage in stages %}
+            <div>
+                <h3 class="text-center">
+                    <a class="title" href="{% url 'outline_list' %}?stage_id={{ stage.id }}">阶段{{ stage.number }} - {{ stage.title }}
+                        <small>（{{ stage.days }}）</small>
+                    </a>&nbsp;&nbsp;
+                    <a class="glyphicon glyphicon-list" href="{% url 'stage_detail' %}" title="阶段详情"></a>&nbsp;
+                    <a class="glyphicon glyphicon-edit" href="{% url 'stage_edit' %}" title="修改阶段"></a>&nbsp;
+                    <a class="glyphicon glyphicon-remove-circle" href="#"
+                       title="删除阶段"></a>
+                </h3>
+                <div class="sub-item">
+                     {{ stage.project }}
+                </div>
+            </div>
+            {% endfor %}
+
+
+        <div class="tools">
+            <a class="glyphicon glyphicon-plus-sign" href="{% url 'stage_add' %}?s_id={{ subject.id }}" title="添加阶段"></a>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+
+
+{% endblock %}

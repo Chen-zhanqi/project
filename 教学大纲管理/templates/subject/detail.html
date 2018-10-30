@@ -1,0 +1,26 @@
+{% extends 'master.html' %}
+{% block main %}
+    <div class="header">
+        <div class="container">
+            <h2>学科详情-{{ subject.name }}</h2>
+        </div>
+    </div>
+    <div class="container">
+        <dl>
+            <dt>学科名称</dt>
+            <dd>{{ subject.name }}</dd>
+            <dt>学费</dt>
+            <dd>￥{{ subject.amount }}</dd>
+            <dt>学时</dt>
+            <dd>{{ subject.days }}天</dd>
+            <dt>承诺</dt>
+            <dd>{{ subject.assurance }}</dd>
+            <dt>备注</dt>
+            <dd>{{ subject.remark }}</dd>
+        </dl>
+        <hr>
+
+        <p>由{{ creater.username }} 创建于 {{ subject.create_time }} </p>
+        <p>由{{ updater.username }} 更新于 {{ subject.update_time }} </p>
+    </div>
+{% endblock %}

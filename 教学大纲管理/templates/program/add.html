@@ -1,0 +1,118 @@
+{% extends 'master.html' %}
+{% block main %}
+    <div class="header">
+        <div class="container">
+            <h2>添加二级大纲/教案</h2>
+        </div>
+    </div>
+    <div class="container">
+        <h4 style="color: red;">{{ errmsg }}</h4>
+        <form class="form-horizontal" action="{% url 'program_add' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="stage_id" class="col-sm-2 control-label">阶段：</label>
+                <div class="col-sm-3">
+                    <select class="form-control" name="stage_id" id="stage_id">
+
+                            <option value="{{ outline.stage.id }}">阶段{{ outline.stage.number }} - {{ outline.stage.title }}</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="outline_id" class="col-sm-2 control-label">一级大纲：</label>
+                <div class="col-sm-3">
+                    <select class="form-control" name="outline_id" id="outline_id">
+                            {% for out in outline.stage.outlinemodel_set.all %}
+                            <option value="{{ out.id }}" {% if out.id == outline.id %}selected{% endif %}>{{ out.title }}</option>
+                                {% endfor %}
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="number" class="col-sm-2 control-label">天序：</label>
+                <div class="col-sm-2">
+                    <input type="text" name="number" id="number" value="1" class="form-control"
+                           placeholder="请填写天序数字" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sign" class="col-sm-2 control-label">标志性内容：</label>
+                <div class="col-sm-3">
+                    <input type="text" name="sign" id="sign" value="" class="form-control"
+                           placeholder="请填写标志性内容" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="digest" class="col-sm-2 control-label">内容摘要：</label>
+                <div class="col-sm-7">
+                    <textarea class="form-control" id="digest" name="digest" rows="3"
+                              placeholder="请填写内容摘要"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="prepare" class="col-sm-2 control-label">准备工作：</label>
+                <div class="col-sm-7">
+                    <textarea class="form-control" id="prepare" name="prepare" rows="3"
+                              placeholder="请填写准备工作"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="process" class="col-sm-2 control-label">讲课流程：</label>
+                <div class="col-sm-7">
+                    <textarea class="form-control" id="process" name="process" rows="12"
+                              placeholder="请填写讲课流程"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="attention" class="col-sm-2 control-label">注意事项：</label>
+                <div class="col-sm-7">
+                    <textarea class="form-control" id="attention" name="attention" rows="3"
+                              placeholder="请填写注意事项"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exercise" class="col-sm-2 control-label">课后作业：</label>
+                <div class="col-sm-7">
+                    <textarea class="form-control" id="exercise" name="exercise" rows="3"
+                              placeholder="请填写课后作业"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="share" class="col-sm-2 control-label">学生分享：</label>
+                <div class="col-sm-7">
+                    <textarea class="form-control" id="share" name="share" rows="3"
+                              placeholder="请填写学生分享"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="management" class="col-sm-2 control-label">管理事项：</label>
+                <div class="col-sm-7">
+                    <textarea class="form-control" id="management" name="management" rows="3"
+                              placeholder="请填写管理事项"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="remark" class="col-sm-2 control-label">备注：</label>
+                <div class="col-sm-7">
+                        <textarea class="form-control" id="remark" name="remark" rows="6"
+                                  placeholder="请填写备注">{</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="visible-md visible-sm visible-lg col-sm-2 control-label"></label>
+                <div class="col-sm-2">
+                    <input type="hidden" name="id" value="1">
+                    <input type="hidden" name="subject_id" value="2">
+                    <input type="submit" class="btn btn-primary btn-block" value="提交">
+                </div>
+            </div>
+        </form>
+    </div>
+      <script>
+
+
+    </script>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'master.html' %}
+
+{% block main %}
+    <div class="header">
+        <div class="container">
+            <h2>修改阶段</h2>
+        </div>
+    </div>
+    <div class="container">
+        <form class="form-horizontal" action="#" method="post">
+            <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">标题：</label>
+                <div class="col-sm-3">
+                    <input type="text" name="title" id="title" value="Python基础" class="form-control"
+                           placeholder="请填写阶段标题" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="project" class="col-sm-2 control-label">项目：</label>
+                <div class="col-sm-4">
+                    <input type="text" name="project" id="project" value="学员管理系统" class="form-control"
+                           placeholder="请填写项目名称" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="teaching" class="col-sm-2 control-label">教学方法：</label>
+                <div class="col-sm-7">
+                    <input type="text" name="teaching" id="teaching" value="教+学+做" class="form-control"
+                           placeholder="请填写教学方法" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="learning" class="col-sm-2 control-label">学习方法：</label>
+                <div class="col-sm-7">
+                    <input type="text" name="learning" id="learning" value="多敲代码" class="form-control"
+                           placeholder="请填写学习方法" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sharing" class="col-sm-2 control-label">学生分享：</label>
+                <div class="col-sm-7">
+                    <textarea class="form-control" id="sharing" name="sharing" rows="3"
+                                  placeholder="请填写学生分享">分型技术知识点,共同进步</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="days" class="col-sm-2 control-label">学时：</label>
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <input type="text" name="days" id="days" value="20" class="form-control"
+                               placeholder="请填写学时" required>
+                        <span class="input-group-addon">天</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="number" class="col-sm-2 control-label">排序：</label>
+                <div class="col-sm-2">
+                    <input type="text" name="number" id="number" value="1" class="form-control"
+                           placeholder="请填写排序数字" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="remark" class="col-sm-2 control-label">备注：</label>
+                <div class="col-sm-7">
+                        <textarea class="form-control" id="remark" name="remark" rows="6"
+                                  placeholder="请填写备注">多写代码</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="visible-md visible-sm visible-lg col-sm-2 control-label"></label>
+                <div class="col-sm-2">
+                    <input type="hidden" name="id" value="1">
+                    <input type="hidden" name="subject_id" value="1">
+                    <input type="submit" class="btn btn-primary btn-block" value="提交">
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

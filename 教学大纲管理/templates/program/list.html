@@ -1,0 +1,36 @@
+{% extends 'master.html' %}
+{% block main %}
+    <div class="container zy-list">
+        <h2 class="text-center">Python 阶段 1 二级大纲</h2>
+        <p class="text-center">Python基础（20 天）</p>
+        {% for program in  outline.programmodel_set.all %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    第{{ program.number }}天&nbsp;&nbsp;{{ program.sign }}
+                    <span class="pull-right">
+                        <a class="glyphicon glyphicon-edit" href="./edit.html" title="修改二级大纲/教案"></a>&nbsp;
+                        <a class="glyphicon glyphicon-remove-circle" href="" title="删除二级大纲/"></a>
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <a href="./detail.html">{{ program.digest }}</a>
+            </div>
+            <div class="panel-footer">{{ program.prepare }}</div>
+        </div>
+
+        {% endfor %}
+
+
+        <div class="tools text-center">
+            <a class="glyphicon glyphicon-plus-sign" href="{% url 'program_add' %}?o_id={{ outline.id }}" title="添加二级大纲/教案"></a>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+
+
+{% endblock %}
