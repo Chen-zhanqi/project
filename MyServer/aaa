@@ -1,0 +1,38 @@
+
+upstream app_server {
+        server 127.0.0.1:8000;  #与gunicorn配置中bind的地址一致
+    }
+    server {listen       8000;  # 该端口要开放
+        server_name  0.0.0.0;  #域名或主机地址
+        access_log  /www/MyServer/logs/host.access.log;
+        location = /favicon.ico  {
+            empty_gif;
+            access_log off;
+        }
+        location /static/ {
+            root   /www/MyServer/;
+            expires 30d;
+            access_log off;
+        }
+        location / {
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $http_host;
+            proxy_redirect off;
+            proxy_pass http://app_server;
+        }
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+    }
+
+
+[program:MyServer]
+command = gunicorn -c /www/MyServer/MyServer/gunicorn.conf.py MyServer.wsgi:application
+user = root
+autostart=true ;
+autorestart=true ;
+startretries=10 ;
+redirect_stderr = true
+stdout_logfile = /www/MyServer/logs/robot.log
+stderr_logfile=/www/MyServer/logs/err.log
